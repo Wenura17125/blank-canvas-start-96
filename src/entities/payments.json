@@ -1,0 +1,72 @@
+
+{
+  "name": "payments",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "amount", "status", "createdAt"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string",
+            "description": "User ID for payment"
+          },
+          "amount": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Payment amount"
+          },
+          "currency": {
+            "bsonType": "string",
+            "enum": ["USD", "EUR", "CNY", "INR"],
+            "description": "Payment currency"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pending", "completed", "failed", "refunded"],
+            "description": "Payment status"
+          },
+          "paymentSlipPath": {
+            "bsonType": "string",
+            "description": "Uploaded payment slip file path"
+          },
+          "paymentSlipName": {
+            "bsonType": "string",
+            "description": "Original payment slip file name"
+          },
+          "transactionId": {
+            "bsonType": "string",
+            "description": "Transaction reference ID"
+          },
+          "paymentMethod": {
+            "bsonType": "string",
+            "enum": ["bank_transfer", "credit_card", "paypal", "other"],
+            "description": "Payment method used"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Payment notes or comments"
+          },
+          "processedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Payment processing timestamp"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Payment creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

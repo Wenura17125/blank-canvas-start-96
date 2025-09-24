@@ -1,0 +1,78 @@
+
+{
+  "name": "papers",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["title", "abstract", "keywords", "status", "user_id", "submittedAt"],
+        "properties": {
+          "title": {
+            "bsonType": "string",
+            "minLength": 5,
+            "maxLength": 200,
+            "description": "Paper title"
+          },
+          "abstract": {
+            "bsonType": "string",
+            "minLength": 100,
+            "maxLength": 2000,
+            "description": "Paper abstract"
+          },
+          "keywords": {
+            "bsonType": "string",
+            "description": "Comma-separated keywords"
+          },
+          "filePath": {
+            "bsonType": "string",
+            "description": "Uploaded file path"
+          },
+          "fileName": {
+            "bsonType": "string",
+            "description": "Original file name"
+          },
+          "fileSize": {
+            "bsonType": "number",
+            "description": "File size in bytes"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["submitted", "under_review", "accepted", "rejected", "revision_required"],
+            "description": "Paper review status"
+          },
+          "user_id": {
+            "bsonType": "string",
+            "description": "Author user ID"
+          },
+          "reviewerComments": {
+            "bsonType": "string",
+            "description": "Reviewer feedback"
+          },
+          "submittedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Submission timestamp"
+          },
+          "reviewedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Review completion timestamp"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

@@ -1,0 +1,86 @@
+
+{
+  "name": "user_profiles",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "createdAt"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string",
+            "description": "User ID linked to base user account"
+          },
+          "fullName": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "User full name"
+          },
+          "affiliation": {
+            "bsonType": "string",
+            "maxLength": 200,
+            "description": "University or organization affiliation"
+          },
+          "country": {
+            "bsonType": "string",
+            "maxLength": 100,
+            "description": "Country of residence"
+          },
+          "bio": {
+            "bsonType": "string",
+            "maxLength": 1000,
+            "description": "Professional biography"
+          },
+          "phone": {
+            "bsonType": "string",
+            "description": "Phone number"
+          },
+          "website": {
+            "bsonType": "string",
+            "description": "Personal or professional website"
+          },
+          "orcid": {
+            "bsonType": "string",
+            "description": "ORCID identifier"
+          },
+          "researchInterests": {
+            "bsonType": "string",
+            "description": "Research interests and areas"
+          },
+          "academicTitle": {
+            "bsonType": "string",
+            "enum": ["Dr.", "Prof.", "Mr.", "Ms.", "Mrs."],
+            "description": "Academic title"
+          },
+          "participationType": {
+            "bsonType": "string",
+            "enum": ["presenter", "attendee", "keynote", "panelist"],
+            "description": "Conference participation type"
+          },
+          "dietaryRequirements": {
+            "bsonType": "string",
+            "description": "Special dietary requirements"
+          },
+          "accommodationNeeds": {
+            "bsonType": "string",
+            "description": "Special accommodation needs"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Profile creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

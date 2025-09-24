@@ -1,0 +1,77 @@
+
+{
+  "name": "messages",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["name", "email", "subject", "body", "isRead", "createdAt"],
+        "properties": {
+          "name": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Sender name"
+          },
+          "email": {
+            "bsonType": "string",
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            "description": "Sender email address"
+          },
+          "subject": {
+            "bsonType": "string",
+            "minLength": 5,
+            "maxLength": 200,
+            "description": "Message subject"
+          },
+          "body": {
+            "bsonType": "string",
+            "minLength": 10,
+            "maxLength": 2000,
+            "description": "Message content"
+          },
+          "isRead": {
+            "bsonType": "bool",
+            "description": "Message read status"
+          },
+          "priority": {
+            "bsonType": "string",
+            "enum": ["low", "medium", "high", "urgent"],
+            "description": "Message priority level"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["general", "technical", "payment", "paper_submission", "registration"],
+            "description": "Message category"
+          },
+          "adminResponse": {
+            "bsonType": "string",
+            "description": "Admin response to the message"
+          },
+          "respondedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Admin response timestamp"
+          },
+          "respondedBy": {
+            "bsonType": "string",
+            "description": "Admin user who responded"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Message creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

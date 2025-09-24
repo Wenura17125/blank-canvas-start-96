@@ -1,0 +1,91 @@
+
+{
+  "name": "reviews",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["paper_id", "reviewer_id", "status", "createdAt"],
+        "properties": {
+          "paper_id": {
+            "bsonType": "string",
+            "description": "Paper being reviewed"
+          },
+          "reviewer_id": {
+            "bsonType": "string",
+            "description": "Reviewer user ID"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["assigned", "in_progress", "completed", "declined"],
+            "description": "Review status"
+          },
+          "recommendation": {
+            "bsonType": "string",
+            "enum": ["accept", "minor_revision", "major_revision", "reject"],
+            "description": "Reviewer recommendation"
+          },
+          "overallScore": {
+            "bsonType": "number",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Overall paper score (1-10)"
+          },
+          "originalityScore": {
+            "bsonType": "number",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Originality score (1-10)"
+          },
+          "qualityScore": {
+            "bsonType": "number",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Quality score (1-10)"
+          },
+          "clarityScore": {
+            "bsonType": "number",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Clarity score (1-10)"
+          },
+          "comments": {
+            "bsonType": "string",
+            "description": "Detailed review comments"
+          },
+          "confidentialComments": {
+            "bsonType": "string",
+            "description": "Comments for editors only"
+          },
+          "reviewTime": {
+            "bsonType": "number",
+            "description": "Time spent on review (minutes)"
+          },
+          "assignedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Review assignment timestamp"
+          },
+          "completedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Review completion timestamp"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Review creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
